@@ -1,16 +1,17 @@
 <h1 align="center">Todo Space 📑</h1>
 
-# 💡 Objective
-    Develop a TODO API using Golang and ScyllaDB that supports basic CRUD operations and includes pagination functionality for the list endpoint.
+## 💡 Objective
+    Develop a TODO API using Golang and ScyllaDB that supports basic CRUD operations and includes 
+    pagination functionality for the list endpoint.
 
-# 📒 Requirements
+## 📒 Requirements
 - Set up a Golang project and integrate ScyllaDB as the database for storing TODO items. Ensure that items in the database are stored user-wise.
 - Implement endpoints for creating, reading, updating, and deleting TODO items for a single user at a time. Each TODO item should have at least the following properties: id, user_id, title, description, status, created, updated.
 - Implement a paginated list endpoint to retrieve TODO items.
 - Provide support for filtering based on TODO item status (e.g., pending, completed).
 
 
-# ⚙️ API Documentation
+## ⚙️ API Documentation
 
 ### `POST` /v1/todo
 
@@ -80,31 +81,29 @@ Retrieve all todo items based on filters.
 
 ![alt text](image-5.png)
 
-# 🏃‍♂️ Run Locally
+## 🏃‍♂️ Run Locally
 
 - Clone this repository.
     ```js
     https://github.com/debrajhyper/Todo-Space.git
     ```
 - Install Docker Desktop.
-- Run `docker-compose -f  todospace-api.yml up` to initialize a Scylla-DB instance running on port 9042.
+- Run `docker-compose -f todospace-api.yml up` to initialize a Scylla-DB instance running on port 9042.
 - Go from the main directory to `\cmd\api` and then run `go run main.go` to start the service.
 
-<br/>
-
-### Features Implemented:
+## Features Implemented:
 
 - Implemented CRUD routes for interaction b/w server and ScyllaDB.
 - The API's are paginated for easy data retrieval.
 - The application's DB part is Dockerized and is stateful through volumes.
 - Support for filtering based on TODO item status (e.g., pending, completed).
 
-### Current Architecture:
+## Current Architecture:
 
 - Containerized approach to solving the problem statement.
 - Two Interfaces one for the server and one for db are interacting between each other for the backend application.
 
-### Future Scope:
+## Future Scope:
 
 - The current architecture is a very basic implementation of the problem statement.
 - Depending upon the scale, the entire architecture can be **scaled horizontally** using nginx load balancing.
@@ -112,7 +111,7 @@ Retrieve all todo items based on filters.
 - The Go-Server could be containerized to improve deployment.
 - Introduction to goroutines would increase the overall throughput of the service.  
 
-# 👨🏻‍💻 Developer's Talk
+## 👨🏻‍💻 Developer's Talk
 Developed by <a href="https://github.com/debrajhyper">Debraj Karmakar</a>
 <span style="display:inline-flex; justify-content:space-evenly; width:20%;">
 <a href="https://twitter.com/debraj_010">

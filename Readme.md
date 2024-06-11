@@ -91,6 +91,30 @@ Retrieve all todo items based on filters.
 - Run `docker-compose -f todospace-api.yml up` to initialize a Scylla-DB instance running on port 9042.
 - Go from the main directory to `\cmd\api` and then run `go run main.go` to start the service.
 
+Note: If you are facing issue while connecting the golang backend services with the ScyllaDB then run the below steps.
+  - open ``cmd`` and enter the command to execute the cqlsh in the scylla-db instance.
+  ```bash
+    docker exec -it scylla-db cqlsh
+  ```
+  ![alt text](image-7.png)
+
+  Note down the ``IP(172.23.0.2)``(might be change according to your docker configuration) and change it to the ``scylladb.go`` file.
+
+  ![alt text](image-8.png)
+  
+  - Now in the cqlsh terminal create the ``KEYSPACE`` manually by the following command:
+  ```bash
+    CREATE KEYSPACE todo WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1};
+  ```
+  - Now enter the command to use the ``todo KEYSPACE``
+  ```bash
+    use todo;
+  ```
+  - Now create the ``todos`` table from the below query
+  ```sql
+    CREATE TABLE IF NOT EXISTS todos (id UUID,user_id UUID,title TEXT,description TEXT,status TEXT,created TEXT,updated TEXT,PRIMARY KEY (id, user_id));
+  ```
+
 ## Features Implemented:
 
 - Implemented CRUD routes for interaction b/w server and ScyllaDB.
